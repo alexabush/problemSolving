@@ -1,6 +1,8 @@
-function fibonacci(n, currentVal = n) {
+function fibonacci(n, memo = [0, 1]) {
   if (n < 2) return n;
-  return fibonacci(n - 1) + fibonacci(n - 2);
+  if (memo[n]) return memo[n];
+  memo[n] = fibonacci(n - 1, memo) + fibonacci(n - 2, memo);
+  return memo[n];
 }
 
 const nums = Array.from({ length: 20 }, (num, index) => {
