@@ -3,7 +3,7 @@ function fibonacci(n) {
   return fibonacci(n - 1) + fibonacci(n - 2);
 }
 
-const nums = Array.from({ length: 20 }, (num, index) => {
+const nums = Array.from({ length: 15 }, (num, index) => {
   return index;
 });
 console.log('nums: ', nums);
