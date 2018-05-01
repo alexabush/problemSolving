@@ -4,10 +4,7 @@ function fib(n) {
   return memo[n];
 
   function helper(n, memo) {
-    if (n < 2) {
-      return n;
-    }
-    if (memo[n]) {
+    if (memo[n] !== undefined) {
       return memo[n];
     }
     return (memo[n] = helper(n - 1, memo) + helper(n - 2, memo));
