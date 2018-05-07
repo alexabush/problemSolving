@@ -26,7 +26,6 @@ function findTriplets(arr) {
       }
     }
   }
-
   return total;
 }
 
