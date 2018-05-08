@@ -4,8 +4,8 @@ function isPrime(num) {
       console.log('Not prime');
       return;
     }
-    console.log('Prime');
   }
+  console.log('Prime');
 }
 
 console.log(isPrime(5));
