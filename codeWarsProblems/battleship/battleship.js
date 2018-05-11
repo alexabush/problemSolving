@@ -10,7 +10,7 @@ console.log(damagedOrSunk(sampleBoard, sampleAttacks));
 function damagedOrSunk(board, attacks) {
   const boats = Array.from({ length: 3 }, element => new Map());
 
-  for (let i = board.length - 1; i > 0; i--) {
+  for (let i = board.length; i > 1; i--) {
     for (let j = 0; j < board[i].length; j++) {
       //need to accurately set the boat coordinates
       //currently coordinates are being tracked incorrectly
