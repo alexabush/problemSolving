@@ -13,14 +13,11 @@ console.log(partialAddALot()(1, 2)(3, 4)(5, 6)()()()()(6)()()(10, 11, 12));
 console.log(partialSub(1, 2, 3)(4, 5, 6)); // -13
 
 function partial(func) {
-  const numArgs = func.length;
   const args = [];
   return function innerFunc(...newArgs) {
-    if (newArgs) args.push(...newArgs);
-    if (args.length >= numArgs) {
-      const neededArgs = args.slice(0, numArgs);
-      return func(...neededArgs);
-    } else return innerFunc;
+    args.push(...newArgs);
+    if (args.length >= func.length) return func(...args);
+    else return innerFunc;
   };
 }
 
