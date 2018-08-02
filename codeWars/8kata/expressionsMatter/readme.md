@@ -17,3 +17,5 @@ You can use the same operation more than once.
 \*It's not necessary to place all the signs and brackets.
 Repetition in numbers may occur .
 You cannot swap the operands. For instance, in the given example you cannot get expression (1 + 3) \* 2 = 8.
+
+https://www.codewars.com/kata/5ae62fcf252e66d44d00008e/solutions/javascript

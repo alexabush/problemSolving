@@ -5,8 +5,6 @@ function expressionMatter(a, b, c) {
   highestNum = sum(a, b) + c;
   testNum = sum(a, b) * c;
   test();
-  testNum = a + sum(b, c);
-  test();
   testNum = a * sum(b, c);
   test();
   testNum = mul(a, b) + c;
