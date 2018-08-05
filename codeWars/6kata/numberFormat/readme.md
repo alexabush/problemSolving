@@ -42,3 +42,25 @@ Solved bug by resetting counter to 1 instead of 0 on the reset iteration (since 
 I believe I have a fully working solution, time to submit to codewars.
 
 I'm getting getting errors for negative numbers and I'm going to take a short break because I'm feeling frustrated with the problem.
+
+I'm back.
+
+I need to add logic to not treat a negative sign like a digit
+
+Brainstorm:
+
+First idea:
+
+1.  add an 'isNegative' flag at the very beginning (before we convert to string), set to true or false if number > 0
+2.  use Math.abs to make sure number is positive, convert to string, keep the rest of the code the same
+3.  Before returning the answer, if isNegative is true, add '-' to the beginning of newStr.
+
+This should work! Let's try it out.
+
+It works!
+
+Runtime Considerations:
+
+Time Complexity: linear, where n is the number of digits in the number
+
+Space Complexity: n, where n is the number of digits in the number (we need to convert a newStr which will be the same length as the initial number)

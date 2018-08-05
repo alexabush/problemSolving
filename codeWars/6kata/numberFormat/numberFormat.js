@@ -1,5 +1,6 @@
 var numberFormat = function(number) {
-  const numStr = number.toString();
+  let isNegative = number < 0;
+  const numStr = Math.abs(number).toString();
   let newStr = '';
   let counter = 0;
   for (let i = numStr.length - 1; i >= 0; i--) {
@@ -13,6 +14,7 @@ var numberFormat = function(number) {
       counter++;
     }
   }
+  if (isNegative) newStr = '-' + newStr;
   return newStr;
 };
 
