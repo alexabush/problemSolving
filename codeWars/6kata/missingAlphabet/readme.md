@@ -58,3 +58,9 @@ Small bug, if it's 2nd+ time seeing a letter I still need to add it to the strin
 Works!
 
 I can clean it up a little bit by chaining some of the processing together.
+
+##Things I Learned from Codewars Answers
+
+1.  We can easily create an array by spreading a string. This will yield the same functionality as str.split('')
+
+2.  We can easily load a set of all characters in a string by using new Set(str.split(''))
