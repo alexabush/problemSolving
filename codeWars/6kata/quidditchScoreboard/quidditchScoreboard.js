@@ -2,8 +2,8 @@ function quidditchScoreboard(teams, actions) {
   let storeObj = {};
   const lookup = {
     'Quaffle goal': 10,
-    foul: -30,
-    'Caught Snitch': 150
+    'Caught Snitch': 150,
+    foul: -30
   };
 
   let splitTeams = teams.split(' vs ');
