@@ -3,12 +3,12 @@ const whosOnline = friends => {
   let returnObj = {};
   for (let friend of friends) {
     const { username, status, lastActivity } = friend;
-    if (status === 'Offline') {
-      addToObj(username, 'Offline');
+    if (status === 'offline') {
+      addToObj(username, 'offline');
     } else if (lastActivity > 10) {
-      addToObj(username, 'Away');
+      addToObj(username, 'away');
     } else {
-      addToObj(username, 'Online');
+      addToObj(username, 'online');
     }
   }
   return returnObj;

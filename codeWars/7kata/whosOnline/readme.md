@@ -54,3 +54,11 @@ once we've iterated through the whole list, we'll return the return object
 5. add the key (online/offline/away) to the return object IF it doesn't exist in the return object yet and set the value to be an empty array.
 6. Add current username to array in return object at correct key
 7. Once list has been iterated through, return the returnObject
+
+## Debugging
+
+First try got slight error, names that should be in offline got added to away
+
+Something is likely wrong with my conditional logic
+
+Error was with unintentional capitalization
