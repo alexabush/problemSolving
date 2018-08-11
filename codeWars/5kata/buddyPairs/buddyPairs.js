@@ -1,8 +1,11 @@
 function buddy(start, limit) {
   const pair = [];
   for (let i = start; i <= limit; i++) {
-    let secondNum = sumDivisors(start) - 1;
-    if (start === sumDivisors(secondNum)) {
+    if (i === 48) {
+      debugger;
+    }
+    let secondNum = sumDivisors(i) - 1;
+    if (i + 1 === sumDivisors(secondNum)) {
       pair.push(i, secondNum);
       return pair;
     }
@@ -11,9 +14,10 @@ function buddy(start, limit) {
 
   function sumDivisors(num) {
     let divisors = [];
-    for (let i = 1; i < Math.floor(num / 2); i++) {
-      if (num % i === 0) divisors.push(num);
+    for (let i = 1; i <= Math.floor(num / 2); i++) {
+      if (num % i === 0) divisors.push(i);
     }
+    if (divisors.length < 1) return 0;
     return divisors.reduce((a, b) => a + b);
   }
 }
