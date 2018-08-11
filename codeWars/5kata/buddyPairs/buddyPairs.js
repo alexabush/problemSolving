@@ -23,3 +23,4 @@ function buddy(start, limit) {
 }
 
 console.log(buddy(10, 50)); // [48, 75]);
+console.log(buddy(381, 4318)); // [1050, 1925]); // [48, 75]);
