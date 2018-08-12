@@ -1,9 +1,6 @@
 function buddy(start, limit) {
   const pair = [];
   for (let i = start; i <= limit; i++) {
-    if (i === 48) {
-      debugger;
-    }
     let secondNum = sumDivisors(i) - 1;
     if (i + 1 === sumDivisors(secondNum)) {
       pair.push(i, secondNum);
