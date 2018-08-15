@@ -48,3 +48,9 @@ The problem was that I was passing Math.max and Math.min an array and the method
 Since we know that more than two different depths will automatically return in a false return value, we could add some short-circuiting logic to automatically return false if our array ever becomes more than 2 elements long.
 
 We could also add a smoke test at the beginning to return true if the root node doesn't exist.
+
+The interviewcake implementation of the solution uses a stack to do dfs instead of recursion.
+
+Stack causes dfs because that nature of the stack 'buries' nodes until the current node's paths are completed explored.
+
+A queue is the opposite, and causes all the neighbor nodes of the current node to be explored before moving on
