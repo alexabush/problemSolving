@@ -17,30 +17,31 @@ class BinaryTreeNode {
 }
 
 function isBalanced(treeRoot) {
-  let depths = new Set();
+  let depths = [];
   dfs(treeRoot);
-  // if (depths.has(2)) return false;
-  // return true;
-  console.log('depths', depths);
+  debugger;
+  if (Math.max(...depths) - Math.min(...depths) > 1) {
+    return false;
+  }
+  return true;
 
   function dfs(node, depth = 0) {
-    depths.add(depth);
     if (node.left) {
       dfs(node.left, depth + 1);
     }
     if (node.right) {
       dfs(node.right, depth + 1);
+    } else {
+      depths.push(depth);
     }
     return;
   }
 }
 
-let treeRoot = new BinaryTreeNode(5);
-let leftNode = treeRoot.insertLeft(8);
-leftNode.insertLeft(1);
-leftNode.insertRight(2);
-let rightNode = treeRoot.insertRight(6);
-rightNode.insertLeft(3);
-rightNode.insertRight(4);
-// console.log(treeRoot);
-isBalanced(treeRoot);
+let desc = 'leaf heights differ by two';
+let treeRoot = new BinaryTreeNode(6);
+let leftNode = treeRoot.insertLeft(1);
+let rightNode = treeRoot.insertRight(0);
+rightNode.insertRight(7).insertRight(8);
+console.log(isBalanced(treeRoot)); //false, false, desc);
+// isBalanced(treeRoot);
