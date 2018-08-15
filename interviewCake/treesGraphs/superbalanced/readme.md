@@ -42,3 +42,9 @@ So I coded it out and it passes all but two tests. The problem seems to be that 
 
 **Problem Solved!**
 The problem was that I was passing Math.max and Math.min an array and the methods only take a series of numbers. So I just spread the arrays and it solved the problem. Code works now.
+
+## Ways to improve the algorithm
+
+Since we know that more than two different depths will automatically return in a false return value, we could add some short-circuiting logic to automatically return false if our array ever becomes more than 2 elements long.
+
+We could also add a smoke test at the beginning to return true if the root node doesn't exist.

@@ -19,7 +19,6 @@ class BinaryTreeNode {
 function isBalanced(treeRoot) {
   let depths = [];
   dfs(treeRoot);
-  debugger;
   if (Math.max(...depths) - Math.min(...depths) > 1) {
     return false;
   }
