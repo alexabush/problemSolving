@@ -63,3 +63,10 @@ PASSED!
 ### Problem Solved!
 
 But I still want to review the interview cake notes.
+
+_Simplifying_
+Can I simplify the 'node.right' conditional branch?
+
+This should be log n runtime space complexity, since we're going directly to the second largest element.
+
+We could also represent this as 'h', as in the height of the binary search tree, since we'll need to go to the second rightmost element, which could be the bottom leaf of the tree.
