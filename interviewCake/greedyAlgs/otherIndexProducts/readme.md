@@ -39,3 +39,9 @@ So I solved the most version of the problem, but I fail on the edge cases.
 
 1. Array may contain 0s.
    I can't divide by 0, so I need a way of ignoring the zeros when I calculate the totalProduct
+
+Solved that problem
+
+2. There's now a stipulation in the problem: we can't use division! So that makes things harder...
+
+## Brainstorm Reworking of Problem

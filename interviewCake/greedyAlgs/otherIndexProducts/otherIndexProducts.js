@@ -1,19 +1,24 @@
 function getProductsOfAllIntsExceptAtIndex(intArray) {
+  if (intArray.length < 2) throw Error();
   let numZero = 0;
   const totalProduct = intArray.reduce((acc, num) => {
     if (num === 0) {
-      numZero++;
-      return num;
+      numZero += 1;
+      return acc;
     } else {
       return acc * num;
     }
   }, 1);
   return intArray.map(num => {
-    if (numZero > 1) return 0;
     if (numZero === 1 && num === 0) {
       return totalProduct;
+    } else if (numZero > 0) {
+      return 0;
     } else {
       return totalProduct / num;
     }
   });
 }
+
+console.log(getProductsOfAllIntsExceptAtIndex([6, 2, 0, 3]));
+// expected = [0, 0, 36, 0];
