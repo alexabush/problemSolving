@@ -22,8 +22,9 @@ function divisionSolution(intArray) {
 
 function getProductsOfAllIntsExceptAtIndex(intArray) {
   if (intArray.length < 2) throw Error();
-
-  return intArray.map((currentNum, idx, arr) => {
+  let zeroCount = 0;
+  let result = intArray.map((currentNum, idx, arr) => {
+    if (currentNum === 0) zeroCount++;
     return arr.reduce((acc, num) => {
       if (num === currentNum) {
         return acc;
@@ -32,7 +33,14 @@ function getProductsOfAllIntsExceptAtIndex(intArray) {
       }
     }, 1);
   });
+  if (zeroCount < 2) {
+    return result;
+  } else {
+    return new Array(result.length).fill(0);
+  }
 }
 
 console.log(getProductsOfAllIntsExceptAtIndex([6, 2, 0, 3]));
 // expected = [0, 0, 36, 0];
+console.log(getProductsOfAllIntsExceptAtIndex([4, 0, 9, 1, 0]));
+// [0, 0, 0, 0, 0];

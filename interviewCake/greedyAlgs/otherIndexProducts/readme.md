@@ -55,3 +55,17 @@ I'm not sure what the new time complexity will be, but we'll still be iterating 
 I could make a n^2 solution where I iterate over the array and then reduce all numbers that aren't the current number
 
 That should work, and should be fairly easily to implement
+
+we need some kind of catch to zero out all the numbers if there are more than 2 zeros in the array
+
+### Brainstorm
+
+_Need to turn whole array into zeros if there are more than two zeros_
+
+I could just count if there's 2+ zeros while iterating through the array and then return an array of all zeros...
+
+that's simple and inelegant, but let's do it
+
+Nice! It works!
+
+I used a counter and a conditional to return a zero-filled array if the count ends up 2 or greater.
