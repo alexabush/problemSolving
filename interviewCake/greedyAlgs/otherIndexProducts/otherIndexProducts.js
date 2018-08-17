@@ -1,4 +1,4 @@
-function getProductsOfAllIntsExceptAtIndex(intArray) {
+function divisionSolution(intArray) {
   if (intArray.length < 2) throw Error();
   let numZero = 0;
   const totalProduct = intArray.reduce((acc, num) => {
@@ -17,6 +17,20 @@ function getProductsOfAllIntsExceptAtIndex(intArray) {
     } else {
       return totalProduct / num;
     }
+  });
+}
+
+function getProductsOfAllIntsExceptAtIndex(intArray) {
+  if (intArray.length < 2) throw Error();
+
+  return intArray.map((currentNum, idx, arr) => {
+    return arr.reduce((acc, num) => {
+      if (num === currentNum) {
+        return acc;
+      } else {
+        return acc * num;
+      }
+    }, 1);
   });
 }
 

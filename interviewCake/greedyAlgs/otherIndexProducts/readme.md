@@ -45,3 +45,13 @@ Solved that problem
 2. There's now a stipulation in the problem: we can't use division! So that makes things harder...
 
 ## Brainstorm Reworking of Problem
+
+So we can't use division, which means we can't get the product of all the numbers and then divide
+
+so we need to recalculate the product everytime
+
+I'm not sure what the new time complexity will be, but we'll still be iterating over the array
+
+I could make a n^2 solution where I iterate over the array and then reduce all numbers that aren't the current number
+
+That should work, and should be fairly easily to implement

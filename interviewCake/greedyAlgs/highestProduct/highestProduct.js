@@ -25,7 +25,6 @@ function highestProductOf3(arrayOfInts) {
   }
 
   if (getYield(...positiveNums) === 0) {
-    debugger;
     return getYield(...leastNegative);
   }
 
