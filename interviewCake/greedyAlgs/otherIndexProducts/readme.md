@@ -69,3 +69,37 @@ that's simple and inelegant, but let's do it
 Nice! It works!
 
 I used a counter and a conditional to return a zero-filled array if the count ends up 2 or greater.
+
+_Is this solution in linear time?_
+
+I think so, let's check.
+JK, it's n^2 time.
+
+Interview Cake has a linear time solution, so let's check it out.
+
+## Interview Cake Solution
+
+Our solution requires us to do the same calculations over and over, which is wasteful in terms of time complexity.
+
+It's possible to store the results of calculations so we don't have to repeat them.
+
+We'll store the results of partial calculations and then multiply these partial results by one new integer to get a full result.
+
+_The product can be broken into two pieces_:
+
+1. product of all integers before current index
+2. product of all integers after current index
+
+To get the product of all integers before the current index, we want to store each product we've calculated so far and then multiple that value with the next integer (we'll store the new calculated value as well)
+
+We can make an array of the products of all the ints before the index.
+
+For each integer, we'll find the product of all the integers before it, and store the total product.
+
+After we've found the products of all the integers before each index, we'll have to find the products of all the integers after each index.
+
+_How to do this?_
+
+We COULD just repeat the process we used for all the integers before the index for all the integers after the index, it would be better in terms of space and time complexity to just walk through the array backwards up to the current index.
+
+This method saves the time of reversing the array, but we're still using more space than neccesary because we've creating arrays for both the 'before' products and the 'after' products.
