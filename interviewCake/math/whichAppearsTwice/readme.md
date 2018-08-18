@@ -7,6 +7,14 @@ Every number in the range 1..n appears once except for one number that appears t
 
 Write a function that will return the number that appears twice.
 
-## Brainstorm
+### Brainstorm
 
 The runtime isn't specified, so I'll start with a simple linear search and then try and improve.
+
+**Works!**
+
+## New Specifications
+
+Now we need to do it in constant space, which means that we can't use a counter
+
+### Brainstorm 2

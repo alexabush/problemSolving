@@ -3,7 +3,7 @@ Space Complexity: n
 Time Complexity: n
 */
 
-function findRepeat(nums) {
+function findRepeatlinearspacetime(nums) {
   let counter = {};
   let targetNum;
   for (let num of nums) {
@@ -19,6 +19,15 @@ function findRepeat(nums) {
     }
   }
   return parseInt(targetNum);
+}
+
+function findRepeat(nums) {
+  let sortedNums = nums.sort((a, b) => a > b);
+  let prev = Number.POSITIVE_INFINITY;
+  for (let num of sortedNums) {
+    if (num === prev) return prev;
+    prev = num;
+  }
 }
 
 let actual = findRepeat([1, 2, 1]);
