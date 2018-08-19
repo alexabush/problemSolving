@@ -19,3 +19,7 @@ If the graph is directed, the degree is separated into an **indegree** and an **
 ## What is the problem?
 
 Given an undirected graph with a max degree of D, find a "graph coloring" using at most D+1 colors
+
+**I don't have a strong foundation in graph traversal problems, so I'm just going to skip straight to the explaination**
+
+## Interview Cake Explaination
