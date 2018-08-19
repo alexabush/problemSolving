@@ -1,4 +1,5 @@
-function isRiffled(shuffledDeck, half1, half2) {
+// n^2 runtime solution
+function isRiffledn2(shuffledDeck, half1, half2) {
   let currentIndexh1 = 0;
   let currentIndexh2 = 0;
   debugger;
@@ -18,6 +19,21 @@ function isRiffled(shuffledDeck, half1, half2) {
   return true;
 }
 
+// n^2 runtime solution
+function isRiffled(shuffledDeck, half1, half2) {
+  let currentIndexh1 = 0;
+  let currentIndexh2 = 0;
+  for (let card of shuffledDeck) {
+    if (card === half1[currentIndexh1]) {
+      currentIndexh1++;
+    } else if (card === half2[currentIndexh2]) {
+      currentIndexh2++;
+    } else {
+      return false;
+    }
+  }
+  return true;
+}
 // run your function through some test cases here
 // remember: debugging is half the battle!
 

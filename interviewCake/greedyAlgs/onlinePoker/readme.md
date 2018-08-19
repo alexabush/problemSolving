@@ -75,3 +75,35 @@ So...I think this might work. It's ready to code it out at least.
 Coded out the n^2 solution, returning false when it should return true so starting debugging now
 
 Found bug, it was an off-by-one error. I had set a conditional to > 0, but I wanted >= 0 to include 0 index.
+
+## New Specs
+
+Want to do problem in linear time and constant space.
+
+Which I have no idea how to do.
+
+So.
+
+hm. So i'm reading through the interview cake content, and the answer seems somewhat similar to mergesort.
+
+We're just traversing the array and throwing out the current value from whichever array it's in (actually it might be even better to just incrememt a pointer).
+
+I've looked at a couple of the hints, but I think I can give this problem a go on my own at this point.
+
+## Brainstorming/Psuedocode 2
+
+1. I want to create an half1Index and half2Index
+2. I want to iterate over the array
+3. if the current card is the card at half1Index, incremement half1Index and continue
+4. else if the current card is the card at half2Index, increment half2Index and continue
+5. else return false
+
+Yay it works!
+
+So...linear runtime solution yeah?
+
+The only thing that changed was looking at the first value rather than looking through each half each time using indexOf.
+
+So.
+
+I should review this a bit more, but I think I'm pretty decent on the concepts. It's very similar to the join portion of merge sort.
