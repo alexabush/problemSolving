@@ -66,3 +66,12 @@ Oh well, I'll come back to this.
 1. make variables h1idx, h2idx, currentHalf
 1. traverse shuffled deck
 1. for each number, run indexOf on each half, keep the value for the half that records > 0 and record what half it is in currentHalf
+1. if currentIndex for currentHalf is greater than the indexOf result, return false
+
+So...I think this might work. It's ready to code it out at least.
+
+## Debugging 1
+
+Coded out the n^2 solution, returning false when it should return true so starting debugging now
+
+Found bug, it was an off-by-one error. I had set a conditional to > 0, but I wanted >= 0 to include 0 index.

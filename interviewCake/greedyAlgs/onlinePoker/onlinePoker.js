@@ -1,4 +1,22 @@
-function isRiffled(shuffledDeck, half1, half2) {}
+function isRiffled(shuffledDeck, half1, half2) {
+  let currentIndexh1 = 0;
+  let currentIndexh2 = 0;
+  debugger;
+  for (let card of shuffledDeck) {
+    let indexHalf1 = half1.indexOf(card);
+    if (indexHalf1 > currentIndexh1) {
+      return false;
+    }
+    if (indexHalf1 >= 0) currentIndexh1++;
+
+    let indexHalf2 = half2.indexOf(card);
+    if (indexHalf2 > currentIndexh2) {
+      return false;
+    }
+    if (indexHalf2 >= 0) currentIndexh2++;
+  }
+  return true;
+}
 
 // run your function through some test cases here
 // remember: debugging is half the battle!
