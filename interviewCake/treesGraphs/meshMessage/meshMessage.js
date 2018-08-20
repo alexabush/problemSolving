@@ -12,9 +12,6 @@ function meshMessage(start, target, graph) {
     if (current === target) {
       return [...paths[current], current];
     }
-    if (!Array.isArray(graph[current])) {
-      debugger;
-    }
     for (let neighbor of graph[current]) {
       if (visited.has(neighbor)) continue;
       queue.push(neighbor);
@@ -22,7 +19,7 @@ function meshMessage(start, target, graph) {
     }
   }
 
-  return Error('Message could not reach recipient');
+  return 'Message could not reach recipient';
 }
 
 var network = {
@@ -43,6 +40,6 @@ var network = {
 };
 
 console.log(meshMessage('Jayden', 'Adam', network));
-console.log(meshMessage('Jayden', 'Miranda', network));
-// console.log(meshMessage('Jayden', 'Mark', network));
 //  ['Jayden', 'Amelia', 'Adam']
+console.log(meshMessage('Jayden', 'Miranda', network));
+console.log(meshMessage('Jayden', 'Jayden', network));
