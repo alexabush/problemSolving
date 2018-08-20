@@ -107,3 +107,18 @@ The only thing that changed was looking at the first value rather than looking t
 So.
 
 I should review this a bit more, but I think I'm pretty decent on the concepts. It's very similar to the join portion of merge sort.
+
+We could also do a different implementation that we use recursion
+
+## Recursive Version
+
+### Brainstorm 3
+
+we will have to set a basecase for when we reach then end of shuffle deck, and we should feed in a smaller version of shuffle deck and each half each time we recurse
+
+I have coded it out without pseudocoding it first (whoops!)
+The recursive solution will just feed in a shortened version of the shuffled deck and each halves until the shuffled deck is exhausted.
+
+Each time I run the function, if the first card in what remains of either of the decks doesn't match the first card in what remains of the shuffled deck, we will return false.
+
+If we successfully reach the end of the shuffled deck, we will return true.

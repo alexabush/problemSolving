@@ -19,8 +19,8 @@ function isRiffledn2(shuffledDeck, half1, half2) {
   return true;
 }
 
-// n^2 runtime solution
-function isRiffled(shuffledDeck, half1, half2) {
+// linear runtime solution, iterative approach using for loop
+function isRiffledIt(shuffledDeck, half1, half2) {
   let currentIndexh1 = 0;
   let currentIndexh2 = 0;
   for (let card of shuffledDeck) {
@@ -33,6 +33,18 @@ function isRiffled(shuffledDeck, half1, half2) {
     }
   }
   return true;
+}
+
+//recursive implementation, linear runtime, n space complexity since I'll need to build up n stack frames for a 'true' instance
+function isRiffled(shuffledDeck, half1, half2) {
+  if (!shuffledDeck.length) return true;
+  if (half1.length && shuffledDeck[0] === half1[0]) {
+    return isRiffled(shuffledDeck.slice(1), half1.slice(1), half2);
+  }
+  if (half2.length && shuffledDeck[0] === half2[0]) {
+    return isRiffled(shuffledDeck.slice(1), half1, half2.slice(1));
+  }
+  return false;
 }
 // run your function through some test cases here
 // remember: debugging is half the battle!
