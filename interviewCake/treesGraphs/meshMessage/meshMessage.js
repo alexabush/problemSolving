@@ -12,13 +12,17 @@ function meshMessage(start, target, graph) {
     if (current === target) {
       return [...paths[current], current];
     }
-    debugger;
+    if (!Array.isArray(graph[current])) {
+      debugger;
+    }
     for (let neighbor of graph[current]) {
       if (visited.has(neighbor)) continue;
       queue.push(neighbor);
       paths[neighbor] = [...paths[current], current];
     }
   }
+
+  return Error('Message could not reach recipient');
 }
 
 var network = {
@@ -30,9 +34,15 @@ var network = {
   Adam: ['Amelia', 'Miguel', 'Sofia', 'Lucas'],
   Miguel: ['Amelia', 'Adam', 'Liam', 'Nathan'],
   Noam: ['Nathan', 'Jayden', 'William'],
-  Omar: ['Ren', 'Min', 'Scott']
+  Omar: ['Ren', 'Min', 'Scott'],
+  Lucas: ['Adam'],
+  Nathan: ['Miguel'],
+  Scott: ['Omar'],
+  Sofia: ['Adam'],
+  Liam: ['Miguel']
 };
 
 console.log(meshMessage('Jayden', 'Adam', network));
+console.log(meshMessage('Jayden', 'Miranda', network));
 // console.log(meshMessage('Jayden', 'Mark', network));
 //  ['Jayden', 'Amelia', 'Adam']
