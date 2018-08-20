@@ -20,13 +20,19 @@ function isRiffledn2(shuffledDeck, half1, half2) {
 }
 
 // linear runtime solution, iterative approach using for loop
-function isRiffledIt(shuffledDeck, half1, half2) {
+//constant space since no slices and no recursion
+
+//interview cake has a 'max' pointer for each halves, this is something I overlooked but is neccesary
+function isRiffled(shuffledDeck, half1, half2) {
   let currentIndexh1 = 0;
   let currentIndexh2 = 0;
   for (let card of shuffledDeck) {
-    if (card === half1[currentIndexh1]) {
+    if (card === half1[currentIndexh1] && currentIndexh1 < half1.length) {
       currentIndexh1++;
-    } else if (card === half2[currentIndexh2]) {
+    } else if (
+      card === half2[currentIndexh2] &&
+      currentIndexh2 < half2.length
+    ) {
       currentIndexh2++;
     } else {
       return false;
@@ -35,8 +41,10 @@ function isRiffledIt(shuffledDeck, half1, half2) {
   return true;
 }
 
-//recursive implementation, linear runtime, n space complexity since I'll need to build up n stack frames for a 'true' instance
-function isRiffled(shuffledDeck, half1, half2) {
+//recursive implementation, n^2 runtime, n^2 space complexity since I'll need to build up n stack frames for a 'true' instance
+
+//note that the n^2 is from the slice opperations. Using a pointer variable would drop the runtime back to n
+function isRiffledrecursive(shuffledDeck, half1, half2) {
   if (!shuffledDeck.length) return true;
   if (half1.length && shuffledDeck[0] === half1[0]) {
     return isRiffled(shuffledDeck.slice(1), half1.slice(1), half2);
@@ -46,6 +54,42 @@ function isRiffled(shuffledDeck, half1, half2) {
   }
   return false;
 }
+
+//recursive with pointers
+//runtime linear
+//IMO this is a ugly solution
+function isRiffledrecursivewithpointers(
+  shuffledDeck,
+  half1,
+  half2,
+  deckPointer = 0,
+  h1Pointer = 0,
+  h2Pointer = 0
+) {
+  if (deckPointer >= shuffledDeck.length) return true;
+  if (half1.length && shuffledDeck[deckPointer] === half1[h1Pointer]) {
+    return isRiffled(
+      shuffledDeck,
+      half1,
+      half2,
+      deckPointer + 1,
+      h1Pointer + 1,
+      h2Pointer
+    );
+  }
+  if (half2.length && shuffledDeck[deckPointer] === half2[h2Pointer]) {
+    return isRiffled(
+      shuffledDeck,
+      half1,
+      half2,
+      deckPointer + 1,
+      h1Pointer,
+      h2Pointer + 1
+    );
+  }
+  return false;
+}
+
 // run your function through some test cases here
 // remember: debugging is half the battle!
 
