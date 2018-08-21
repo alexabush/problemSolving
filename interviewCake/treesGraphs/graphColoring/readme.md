@@ -23,3 +23,8 @@ Given an undirected graph with a max degree of D, find a "graph coloring" using 
 **I don't have a strong foundation in graph traversal problems, so I'm just going to skip straight to the explaination**
 
 ## Interview Cake Explaination
+
+We'll go through the nodes in one pass, assigning each node the first legal color we find.
+
+In a graph with maximum degree D, each node has at most D neighbors. That means there are at most D colors taken by a node's neighbors. We have d + 1 colors, sp there's always at least one color left ot use.
+
