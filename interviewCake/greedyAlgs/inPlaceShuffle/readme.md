@@ -54,3 +54,19 @@ It's possible my random function is wrong and i'm occasionally getting too big a
 Okay, so I think that's what the problem is.
 
 The random number function I wrote is inclusive since I have the + 1
+
+**Interview Cake Says I'm Wrong**
+
+apparently the way I did is is how most people try to do it, except we may not get a random distribution doing it this way because of some complicated math reason.
+
+## Brainstorm 2
+
+Interview cake says to partition our array up into a 'shuffled' and 'unsorted' section and gradually move elements from the unsorted section to the sorted section.
+
+## Pseudocode 2
+
+1. iterate over array with for loop
+2. create a 'start' pointer which represents the start of the 'unsorted' section of the array
+3. call randomNum with start and arr.length
+4. splice element at the random number index returned, move returned element to 'start'
+5. increment 'start'
