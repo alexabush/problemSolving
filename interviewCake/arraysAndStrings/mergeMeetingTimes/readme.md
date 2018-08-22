@@ -53,3 +53,5 @@ so the sort is working, and the add is working, but our conditional statement is
 
 so we need to go over that
 cool, there was a problem with my conditional logic. it works now!
+
+## Brainstorm 2

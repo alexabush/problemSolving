@@ -6,8 +6,12 @@ function mergeRanges(arr) {
   for (let time of sortedTimes) {
     let isAdded = false;
     for (let busyTime of busyTimes) {
-      debugger;
       if (
+        time.startTime > busyTime.startTime &&
+        time.endTime < busyTime.endTime
+      ) {
+        isAdded = true;
+      } else if (
         time.startTime > busyTime.startTime &&
         time.startTime <= busyTime.endTime
       ) {
@@ -22,7 +26,7 @@ function mergeRanges(arr) {
   return busyTimes;
 }
 
-const times = [
+const times1 = [
   { startTime: 0, endTime: 1 },
   { startTime: 3, endTime: 5 },
   { startTime: 4, endTime: 8 },
@@ -30,12 +34,19 @@ const times = [
   { startTime: 9, endTime: 10 }
 ];
 
-console.log(mergeRanges(times));
+const nestedMeetings = [
+  { startTime: 1, endTime: 8 },
+  { startTime: 2, endTime: 5 }
+];
 
+// console.log(mergeRanges(times1));
 /*
-  [
-{ startTime: 0, endTime: 1 },
-{ startTime: 3, endTime: 8 },
-{ startTime: 9, endTime: 12 },
+[
+  { startTime: 0, endTime: 1 },
+  { startTime: 3, endTime: 8 },
+  { startTime: 9, endTime: 12 },
 ]
 */
+
+console.log(mergeRanges(nestedMeetings));
+// [{ startTime: 1, endTime: 8 }];
