@@ -38,3 +38,18 @@ This should work even if the elements are out of order.
 no, i may have a problem if elements are out of order.
 
 I can just sort the elements first though using a comparator that will put elements with the earliest start time first
+
+## Debugging
+
+_Quick Recap of Steps_:
+
+1. for each element in our sorted input
+2. we want to go over all the existing values
+3. if our time value can be added to a value in existing values, we want to add it to that value
+4. otherwise we want to add the value to our existing values object
+
+_back to debugging_:
+so the sort is working, and the add is working, but our conditional statement isn't catching ANYTHING.
+
+so we need to go over that
+cool, there was a problem with my conditional logic. it works now!

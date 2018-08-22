@@ -4,15 +4,19 @@ function mergeRanges(arr) {
   });
   let busyTimes = [];
   for (let time of sortedTimes) {
+    let isAdded = false;
     for (let busyTime of busyTimes) {
+      debugger;
       if (
         time.startTime > busyTime.startTime &&
-        time.startTime < busyTime.startTime
+        time.startTime <= busyTime.endTime
       ) {
         busyTime.endTime = time.endTime;
-      } else {
-        busyTimes.push(time);
+        isAdded = true;
       }
+    }
+    if (!isAdded) {
+      busyTimes.push(time);
     }
   }
   return busyTimes;
