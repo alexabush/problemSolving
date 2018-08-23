@@ -10,7 +10,7 @@ function canTwoMoviesFillFlightn2(movieLengths, flightLength) {
   return false;
 }
 
-function canTwoMoviesFillFlight(movieLengths, flightLength) {
+function canTwoMoviesFillFlightlognn(movieLengths, flightLength) {
   movieLengths = movieLengths.sort((a, b) => a > b);
   let low = 0;
   let high = movieLengths.length - 1;
@@ -25,6 +25,22 @@ function canTwoMoviesFillFlight(movieLengths, flightLength) {
   }
   return false;
 }
+function canTwoMoviesFillFlight(movieLengths, flightLength) {
+  let seen = new Set();
+  for (let time in movieLengths) {
+    if (seen.has(flightLength - time)) {
+      return true;
+    }
+    seen.add(+time);
+  }
+  return false;
+}
 
-console.log(canTwoMoviesFillFlight([1, 2, 3, 4, 5, 6], 7));
+// console.log(canTwoMoviesFillFlight([1, 2, 3, 4, 5, 6], 7));
+//true
+
+console.log(canTwoMoviesFillFlight([2, 4], 1));
+//false
+
+// console.log(canTwoMoviesFillFlight([2, 4], 6));
 //true
