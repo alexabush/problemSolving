@@ -25,9 +25,10 @@ function canTwoMoviesFillFlightlognn(movieLengths, flightLength) {
   }
   return false;
 }
+
 function canTwoMoviesFillFlight(movieLengths, flightLength) {
   let seen = new Set();
-  for (let time in movieLengths) {
+  for (let time of movieLengths) {
     if (seen.has(flightLength - time)) {
       return true;
     }
