@@ -9,7 +9,7 @@ function sortScores(nums, maxScore) {
       scoreCount[num] += 1;
     }
   }
-  for (let i = 0; i < scoreCount.length; i++) {
+  for (let i = scoreCount.length - 1; i > 0; i--) {
     if (typeof scoreCount[i] === 'number') {
       while (scoreCount[i] > 0) {
         sortedNums.push(i);
@@ -20,8 +20,12 @@ function sortScores(nums, maxScore) {
   return sortedNums;
 }
 
-var unsortedScores = [37, 89, 41, 65, 91, 53];
 const HIGHEST_POSSIBLE_SCORE = 100;
+var unsortedScores = [37, 89, 41, 65, 91, 53];
+var multipleScores = [89, 89, 41, 65, 91, 89];
 
 console.log(sortScores(unsortedScores, HIGHEST_POSSIBLE_SCORE));
+// returns [91, 89, 65, 53, 41, 37]
+
+console.log(sortScores(multipleScores, HIGHEST_POSSIBLE_SCORE));
 // returns [91, 89, 65, 53, 41, 37]
