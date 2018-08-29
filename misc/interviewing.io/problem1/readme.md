@@ -39,3 +39,9 @@ we should sort the array based on values
 so we have all the values sorted
 
 we want to remove values with the highest
+
+we want to start removing values from highest to lowest until we've gone through t/2 values
+
+then we return the number of keys left
+
+we want to iterate over the array
