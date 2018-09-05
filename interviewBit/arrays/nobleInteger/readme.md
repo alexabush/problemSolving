@@ -36,3 +36,21 @@ i'm going to do a first solution using a nested for loop in quadradic time
 so I seem to have a working quadratic time solution.
 
 how can I reduce this to linear time?
+
+## Interview Bit Hint 1
+
+IB suggests sorting the array to cut runtime to log n \* n time
+
+this feels like it will work, because when we iterate through the array, for each number we only have to consider numbers after it
+
+## Brainstorm 2
+
+1. sort array
+2. iterate over sorted array
+
+for each number, know that all numbers AFTER in the array are greater
+
+so we can do a comparison everytime based on the length of the array
+
+wrote algo, may have an off-by-1 error
+yup, fixed off-by-1 error

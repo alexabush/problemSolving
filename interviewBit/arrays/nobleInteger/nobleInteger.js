@@ -1,4 +1,4 @@
-function nobleInteger(ints) {
+function nobleIntegern2(ints) {
   for (let int of ints) {
     let count = 0;
     for (let num of ints) {
@@ -7,6 +7,18 @@ function nobleInteger(ints) {
       }
     }
     if (count === int) {
+      return 1;
+    }
+  }
+  return -1;
+}
+
+function nobleInteger(ints) {
+  ints = ints.sort((a, b) => a > b);
+
+  for (let i = 0; i < ints.length; i++) {
+    let numRemaining = ints.length - i - 1;
+    if (numRemaining === ints[i]) {
       return 1;
     }
   }
