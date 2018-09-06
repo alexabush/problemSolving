@@ -6,7 +6,7 @@ function arrayToBST(nums) {
 
   function helper(ints) {
     if (!ints.length) {
-      return;
+      return null;
     }
     let mid = getMid(ints);
     let node = new TreeNode(ints[mid]);
