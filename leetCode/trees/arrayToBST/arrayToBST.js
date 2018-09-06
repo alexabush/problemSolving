@@ -1,14 +1,13 @@
-function arrayToBST(arr) {
-  if (arr.length < 1) return [];
-  else if (arr.length < 2) return [arr[0]];
-  else if (arr.length < 3) return [arr[0], arr[1]];
-  let mid = Math.floor(arr.length / 2);
-  let low = mid - 1;
-  let high = mid + 1;
-  let bst = [arr[mid]];
-  while (low > 0 || high < arr.length) {
-    bst[]
-  }
+function arrayToBST(ints) {
+  // if (ints.length < 1) return [];
+  // else if (ints.length < 2) return [ints[0]];
+  // else if (ints.length < 3) return [ints[0], ints[1]];
+  let bst = [];
+  const getMid = arr => Math.floor(arr.length / 2);
+  let mid = getMid(ints);
+  let stack = [ints[mid]];
+  while (stack.length) {}
+  return bst;
 }
 
 /**
@@ -19,7 +18,10 @@ function arrayToBST(arr) {
  * }
  */
 /**
- * @param {number[]} nums
+ * @param {number[]} ints
  * @return {TreeNode}
  */
-var sortedArrayToBST = function(nums) {};
+
+const arr1 = [-12, -10, -3, 0, 5, 9, 12];
+
+console.log(arrayToBST(arr1));
