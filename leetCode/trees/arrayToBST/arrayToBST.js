@@ -1,24 +1,30 @@
-function arrayToBST(ints) {
-  // if (ints.length < 1) return [];
-  // else if (ints.length < 2) return [ints[0]];
-  // else if (ints.length < 3) return [ints[0], ints[1]];
-  let bst = [];
+function arrayToBST(nums) {
+  debugger;
   const getMid = arr => Math.floor(arr.length / 2);
-  let mid = getMid(ints);
-  let stack = [ints[mid]];
-  while (stack.length) {}
+  let bst = helper(nums);
   return bst;
+
+  function helper(ints) {
+    if (!ints.length) {
+      return;
+    }
+    let mid = getMid(ints);
+    let node = new TreeNode(ints[mid]);
+    node.left = helper(ints.slice(0, mid));
+    node.right = helper(ints.slice(mid + 1, ints.length));
+    return node;
+  }
 }
 
+// * Definition for a binary tree node.
+function TreeNode(val) {
+  this.val = val;
+  this.left = this.right = null;
+}
 /**
- * Definition for a binary tree node.
- * function TreeNode(val) {
- *     this.val = val;
- *     this.left = this.right = null;
- * }
  */
 /**
- * @param {number[]} ints
+ * @param {number[]} nums
  * @return {TreeNode}
  */
 

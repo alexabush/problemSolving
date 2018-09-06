@@ -33,3 +33,13 @@ I just need to use the mid value
 
 I did it recursively, which is depth first
 I need to reimplement using a stack to get a bfs style distribution?
+
+how to do this kind of ordering?
+
+post order, breadth first
+
+we could convert to an actual bst first and then change that bst into an array through a separate process
+
+Let's try that.
+
+In that case, I can use the recursive pre-order code i wrote before
