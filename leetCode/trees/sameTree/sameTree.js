@@ -1,21 +1,28 @@
-function arrayToBST(nums) {
-  debugger;
-  const getMid = arr => Math.floor(arr.length / 2);
-  let bst = helper(nums);
-  return bst;
+// function arrayToBST(nums) {
+//   const getMid = arr => Math.floor(arr.length / 2);
+//   let bst = helper(nums);
+//   return bst;
 
-  function helper(ints) {
-    if (!ints.length) {
-      return null;
-    }
-    let mid = getMid(ints);
-    let node = new TreeNode(ints[mid]);
-    node.left = helper(ints.slice(0, mid));
-    node.right = helper(ints.slice(mid + 1, ints.length));
-    return node;
+//   function helper(ints) {
+//     if (!ints.length) {
+//       return null;
+//     }
+//     let mid = getMid(ints);
+//     let node = new TreeNode(ints[mid]);
+//     node.left = helper(ints.slice(0, mid));
+//     node.right = helper(ints.slice(mid + 1, ints.length));
+//     return node;
+//   }
+// }
+
+function arrayToBST(arr) {
+  return helper(arr);
+
+  function helper(nums) {
+    let node = new TreeNode(nums[0]);
+    node.left = helper(nums);
   }
 }
-
 // * Definition for a binary tree node.
 function TreeNode(val) {
   this.val = val;
@@ -57,11 +64,16 @@ const tree2 = arrayToBST(arr2);
 const tree3 = arrayToBST(arr3);
 const tree4 = arrayToBST(arr4);
 
-console.log(sameTree(tree1, tree2));
+const tree5 = arrayToBST([1, 2]);
+const tree6 = arrayToBST([1, null, 2]);
+console.log(tree6);
+// console.log(sameTree(tree1, tree2));
 //true
-console.log(sameTree(tree1, tree3));
+// console.log(sameTree(tree1, tree3));
 //false
-console.log(sameTree(tree1, tree4));
+// console.log(sameTree(tree1, tree4));
 //false
-console.log(sameTree([], []));
+// console.log(sameTree([], []));
 // 'apples'
+// console.log(sameTree(arrayToBST([(1, 2, 1)]), arrayToBST([(1, 1, 2)])));
+// false
