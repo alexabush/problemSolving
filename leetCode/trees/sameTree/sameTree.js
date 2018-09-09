@@ -1,41 +1,10 @@
-// function arrayToBST(nums) {
-//   const getMid = arr => Math.floor(arr.length / 2);
-//   let bst = helper(nums);
-//   return bst;
-
-//   function helper(ints) {
-//     if (!ints.length) {
-//       return null;
-//     }
-//     let mid = getMid(ints);
-//     let node = new TreeNode(ints[mid]);
-//     node.left = helper(ints.slice(0, mid));
-//     node.right = helper(ints.slice(mid + 1, ints.length));
-//     return node;
-//   }
-// }
-
-function arrayToBST(arr) {
-  return helper(arr);
-
-  function helper(nums) {
-    let node = new TreeNode(nums[0]);
-    node.left = helper(nums);
-  }
-}
-// * Definition for a binary tree node.
 function TreeNode(val) {
   this.val = val;
   this.left = this.right = null;
 }
-/**
- */
-/**
- * @param {number[]} nums
- * @return {TreeNode}
- */
 
 function sameTree(tree1, tree2) {
+  debugger;
   if (
     tree1 instanceof TreeNode === false &&
     tree2 instanceof TreeNode === false
@@ -47,33 +16,48 @@ function sameTree(tree1, tree2) {
   if (!!tree1.left !== !!tree2.left) return false;
   if (!!tree1.right !== !!tree2.right) return false;
   if (tree1.left && tree2.left) {
-    sameTree(tree1.left, tree2.left);
+    return sameTree(tree1.left, tree2.left);
   }
   if (tree1.right && tree2.right) {
-    sameTree(tree1.right, tree2.right);
+    return sameTree(tree1.right, tree2.right);
   }
   return true;
 }
 
-const arr1 = [-12, -10, -3, 0, 5, 9, 12];
-const arr2 = [-12, -10, -3, 0, 5, 9, 12];
-const arr3 = [-12, -10, -3, 1, 5, 9, 12];
-const arr4 = [-12, -10, -3, 1, 5, 9];
-const tree1 = arrayToBST(arr1);
-const tree2 = arrayToBST(arr2);
-const tree3 = arrayToBST(arr3);
-const tree4 = arrayToBST(arr4);
+let tree1 = new TreeNode(1);
+tree1.left = new TreeNode(2);
+tree1.right = new TreeNode(3);
+let tree2 = new TreeNode(1);
+tree2.left = new TreeNode(2);
+tree2.right = new TreeNode(3);
 
-const tree5 = arrayToBST([1, 2]);
-const tree6 = arrayToBST([1, null, 2]);
-console.log(tree6);
+let tree3 = new TreeNode(1);
+tree3.left = new TreeNode(2);
+let tree4 = new TreeNode(1);
+tree4.right = new TreeNode(2);
+
+let tree5 = new TreeNode(1);
+tree5.left = new TreeNode(2);
+tree5.right = new TreeNode(1);
+
+let tree6 = new TreeNode(1);
+tree5.left = new TreeNode(1);
+tree5.right = new TreeNode(2);
+
 // console.log(sameTree(tree1, tree2));
 //true
-// console.log(sameTree(tree1, tree3));
+// console.log(sameTree(tree3, tree4));
 //false
-// console.log(sameTree(tree1, tree4));
+// console.log(sameTree(tree5, tree6));
 //false
-// console.log(sameTree([], []));
-// 'apples'
-// console.log(sameTree(arrayToBST([(1, 2, 1)]), arrayToBST([(1, 1, 2)])));
-// false
+
+let tree7 = new TreeNode(1);
+tree7.left = new TreeNode(2);
+tree7.right = new TreeNode(1);
+
+let tree8 = new TreeNode(1);
+tree8.left = new TreeNode(1);
+tree8.right = new TreeNode(2);
+
+console.log(sameTree(tree7, tree8));
+//false
