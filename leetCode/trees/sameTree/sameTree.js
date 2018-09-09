@@ -4,24 +4,29 @@ function TreeNode(val) {
 }
 
 function sameTree(tree1, tree2) {
-  debugger;
-  if (
-    tree1 instanceof TreeNode === false &&
-    tree2 instanceof TreeNode === false
-  )
-    return true;
-  if (tree1 instanceof TreeNode !== tree2 instanceof TreeNode) return false;
-  if (typeof tree1 !== typeof tree2) return true;
-  if (tree1.val !== tree2.val) return false;
-  if (!!tree1.left !== !!tree2.left) return false;
-  if (!!tree1.right !== !!tree2.right) return false;
-  if (tree1.left && tree2.left) {
-    return sameTree(tree1.left, tree2.left);
+  let flag = true;
+  helper(tree1, tree2);
+
+  function helper(tree1, tree2) {
+    // if (
+    //   tree1 instanceof TreeNode === false &&
+    //   tree2 instanceof TreeNode === false
+    // )
+    //   return true;
+    if (tree1 instanceof TreeNode !== tree2 instanceof TreeNode) flag = false;
+    // if (typeof tree1 !== typeof tree2) return true;
+    if (tree1.val !== tree2.val) flag = false;
+    if (!!tree1.left !== !!tree2.left) flag = false;
+    if (!!tree1.right !== !!tree2.right) flag = false;
+    if (tree1.left && tree2.left) {
+      helper(tree1.left, tree2.left);
+    }
+    if (tree1.right && tree2.right) {
+      helper(tree1.right, tree2.right);
+    }
   }
-  if (tree1.right && tree2.right) {
-    return sameTree(tree1.right, tree2.right);
-  }
-  return true;
+
+  return flag;
 }
 
 let tree1 = new TreeNode(1);
