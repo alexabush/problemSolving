@@ -28,3 +28,7 @@ I could even do this recursively.
 that might be better.
 
 print the whole first and last row, and then recurse for the middle section
+
+so i do want my for loops to start from 0 and go up until arrWidth
+
+so my array width formula is wrong
