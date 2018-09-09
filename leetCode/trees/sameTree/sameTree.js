@@ -3,18 +3,14 @@ function TreeNode(val) {
   this.left = this.right = null;
 }
 
-function sameTree(tree1, tree2) {
+function isSameTree(tree1, tree2) {
   let flag = true;
+  if (!tree1 && !tree2) return true;
+  if (!tree1 && tree2) return false;
+  if (tree1 && !tree2) return false;
   helper(tree1, tree2);
 
   function helper(tree1, tree2) {
-    // if (
-    //   tree1 instanceof TreeNode === false &&
-    //   tree2 instanceof TreeNode === false
-    // )
-    //   return true;
-    if (tree1 instanceof TreeNode !== tree2 instanceof TreeNode) flag = false;
-    // if (typeof tree1 !== typeof tree2) return true;
     if (tree1.val !== tree2.val) flag = false;
     if (!!tree1.left !== !!tree2.left) flag = false;
     if (!!tree1.right !== !!tree2.right) flag = false;
@@ -25,7 +21,6 @@ function sameTree(tree1, tree2) {
       helper(tree1.right, tree2.right);
     }
   }
-
   return flag;
 }
 
@@ -64,5 +59,5 @@ let tree8 = new TreeNode(1);
 tree8.left = new TreeNode(1);
 tree8.right = new TreeNode(2);
 
-console.log(sameTree(tree7, tree8));
+console.log(isSameTree(tree7, tree8));
 //false
