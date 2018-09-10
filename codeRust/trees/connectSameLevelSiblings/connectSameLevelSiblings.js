@@ -1,17 +1,18 @@
 function connectSameLevelSiblings(root) {
-  let queue = [root];
+  let queue = [nodeData(root, 0)];
+  debugger;
   while (queue.length) {
-    let node = queue.shift();
+    let { node, depth } = queue.shift();
     let neighbor = null;
-    if (queue[0]) {
-      neighbor = queue[0].val;
+    if (queue[0] && queue[0].depth === depth) {
+      neighbor = queue[0].node.val;
     }
     console.log(`node: ${node.val}, neighbor: ${neighbor}`);
     if (node.left) {
-      queue.push(nodeData(node.left));
+      queue.push(nodeData(node.left, depth + 1));
     }
     if (node.right) {
-      queue.push(nodeData(node.right));
+      queue.push(nodeData(node.right, depth + 1));
     }
   }
 }
