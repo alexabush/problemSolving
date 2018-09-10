@@ -2,12 +2,16 @@ function connectSameLevelSiblings(root) {
   let queue = [root];
   while (queue.length) {
     let node = queue.shift();
-    console.log(node.val);
+    let neighbor = null;
+    if (queue[0]) {
+      neighbor = queue[0].val;
+    }
+    console.log(`node: ${node.val}, neighbor: ${neighbor}`);
     if (node.left) {
-      queue.push(node.left);
+      queue.push(nodeData(node.left));
     }
     if (node.right) {
-      queue.push(node.right);
+      queue.push(nodeData(node.right));
     }
   }
 }
@@ -17,6 +21,13 @@ function TreeNode(val) {
     val,
     left: null,
     right: null
+  };
+}
+
+function nodeData(node, depth) {
+  return {
+    node,
+    depth
   };
 }
 
