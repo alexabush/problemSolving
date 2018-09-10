@@ -1,5 +1,5 @@
+// linear time, constant space
 function treeBFS(root) {
-  debugger;
   let queue = [root];
   while (queue.length) {
     let current = queue.shift();
