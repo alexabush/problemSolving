@@ -1,4 +1,4 @@
-function rotateArray(arr, n) {
+function rotateArrayNM(arr, n) {
   if (n < 0) {
     for (let i = 0; i < Math.abs(n); i++) {
       let num = arr.shift();
@@ -9,6 +9,17 @@ function rotateArray(arr, n) {
       let num = arr.pop();
       arr.unshift(num);
     }
+  }
+  return arr;
+}
+
+function rotateArray(arr, n) {
+  if (n < 0) {
+    let nums = arr.splice(0, Math.abs(n));
+    arr.push(...nums);
+  } else {
+    let nums = arr.splice(arr.length - n);
+    arr.unshift(...nums);
   }
   return arr;
 }
