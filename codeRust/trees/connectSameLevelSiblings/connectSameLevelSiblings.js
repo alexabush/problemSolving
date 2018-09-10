@@ -1,6 +1,5 @@
 function connectSameLevelSiblings(root) {
   let queue = [nodeData(root, 0)];
-  debugger;
   while (queue.length) {
     let { node, depth } = queue.shift();
     let neighbor = null;
