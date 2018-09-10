@@ -6,7 +6,6 @@ function connectSameLevelSiblings(root) {
     if (queue[0] && queue[0].depth === depth) {
       neighbor = queue[0].node.val;
     }
-    console.log(`node: ${node.val}, neighbor: ${neighbor}`);
     if (node.left) {
       queue.push(nodeData(node.left, depth + 1));
     }
@@ -14,6 +13,7 @@ function connectSameLevelSiblings(root) {
       queue.push(nodeData(node.right, depth + 1));
     }
   }
+  return root;
 }
 
 function TreeNode(val) {
@@ -42,3 +42,19 @@ tree1.right.right = TreeNode(300);
 tree1.right.right.right = TreeNode(350);
 
 connectSameLevelSiblings(tree1);
+
+function printTree(root) {
+  let queue = [root];
+  while (queue.length) {
+    let node = queue.shift();
+    console.log(node.val);
+    if (node.left) {
+      queue.push(nodeData(node.left));
+    }
+    if (node.right) {
+      queue.push(nodeData(node.right));
+    }
+  }
+}
+
+printTree(tree1);
