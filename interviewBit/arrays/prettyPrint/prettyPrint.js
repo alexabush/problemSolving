@@ -1,5 +1,4 @@
 function prettyPrint(int, largest = int) {
-  debugger;
   if (int < 1) return;
   if (int === 1) {
     process.stdout.write(int + '');
