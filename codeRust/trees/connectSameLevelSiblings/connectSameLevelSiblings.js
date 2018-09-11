@@ -2,7 +2,6 @@ function connectSameLevelSiblings(root) {
   let queue = [nodeData(root, 0)];
   while (queue.length) {
     let { node, depth } = queue.shift();
-    node.next = null;
     if (queue[0] && queue[0].depth === depth) {
       node.next = queue[0].node.val;
     }
@@ -29,6 +28,7 @@ class TreeNode {
     this.val = val;
     this.left = null;
     this.right = null;
+    this.next = null;
   }
 }
 
