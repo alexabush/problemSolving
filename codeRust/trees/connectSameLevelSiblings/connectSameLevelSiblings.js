@@ -2,9 +2,9 @@ function connectSameLevelSiblings(root) {
   let queue = [nodeData(root, 0)];
   while (queue.length) {
     let { node, depth } = queue.shift();
-    let neighbor = null;
+    node.next = null;
     if (queue[0] && queue[0].depth === depth) {
-      neighbor = queue[0].node.val;
+      node.next = queue[0].node.val;
     }
     if (node.left) {
       queue.push(nodeData(node.left, depth + 1));
