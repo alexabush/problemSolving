@@ -16,12 +16,20 @@ function connectSameLevelSiblings(root) {
   return root;
 }
 
-function TreeNode(val) {
-  return {
-    val,
-    left: null,
-    right: null
-  };
+// function new TreeNode(val) {
+//   return {
+//     val,
+//     left: null,
+//     right: null
+//   };
+// }
+
+class TreeNode {
+  constructor(val) {
+    this.val = val;
+    this.left = null;
+    this.right = null;
+  }
 }
 
 function nodeData(node, depth) {
@@ -31,15 +39,15 @@ function nodeData(node, depth) {
   };
 }
 
-let tree1 = TreeNode(100);
-tree1.left = TreeNode(50);
-tree1.left.right = TreeNode(75);
-tree1.left.left = TreeNode(25);
-tree1.left.left.left = TreeNode(10);
-tree1.left.left.left.right = TreeNode(15);
-tree1.right = TreeNode(200);
-tree1.right.right = TreeNode(300);
-tree1.right.right.right = TreeNode(350);
+let tree1 = new TreeNode(100);
+tree1.left = new TreeNode(50);
+tree1.left.right = new TreeNode(75);
+tree1.left.left = new TreeNode(25);
+tree1.left.left.left = new TreeNode(10);
+tree1.left.left.left.right = new TreeNode(15);
+tree1.right = new TreeNode(200);
+tree1.right.right = new TreeNode(300);
+tree1.right.right.right = new TreeNode(350);
 
 connectSameLevelSiblings(tree1);
 
@@ -49,10 +57,10 @@ function printTree(root) {
     let node = queue.shift();
     console.log(node.val);
     if (node.left) {
-      queue.push(nodeData(node.left));
+      queue.push(node.left);
     }
     if (node.right) {
-      queue.push(nodeData(node.right));
+      queue.push(node.right);
     }
   }
 }
