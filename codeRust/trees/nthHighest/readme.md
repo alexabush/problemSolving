@@ -31,3 +31,5 @@ to go over all the elements in the tree, we just need to go over the height of t
 
 in-order traversal is sorted in ascending order
 so to find the nth highest node, we can scan the tree in descending order via reverse inorder traversal.
+
+inorder traversal is always sorted in ascending order
