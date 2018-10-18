@@ -58,7 +58,7 @@ ALL_QUESTIONS = {
 		const $yes = $('#yesButton')
 		const $no = $('#noButton')
 		let toAsk = [...DEFAULT_QUESTIONS]
-		let isDone = false
+		let isMoreQuestions = true
 		loadNextQuestion()
 
 		$(document).on('click', '#yesButton, #noButton', function (e) {
@@ -68,35 +68,15 @@ ALL_QUESTIONS = {
 				toAsk.push(...currentVal.if_no_ask)
 			}
 			checkDone()
-			if (!isDone) {
+			if (isMoreQuestions) {
 				loadNextQuestion()
 			}
 		});
 
-		/*
-			First Draft, replaced by event listener using event delegation
-		*/
-		// $yes.on('click', function(e) {
-		// 	if (currentVal.if_yes_ask) {
-		// 		toAsk.push(...currentVal.if_yes_ask)
-		// 	}
-		// 	checkDone()
-		// 	loadNextQuestion()
-		// })
-
-		// $no.on('click', function(e) {
-		// 	if (currentVal.if_no_ask) {
-		// 		toAsk.push(...currentVal.if_no_ask)
-		// 	}
-		// 	checkDone()
-		// 	loadNextQuestion()
-		// })
-
-
 		function checkDone() {
 			if (!toAsk.length) {
 				$question.text('Thank you. We will get back to you shortly.')
-				isDone = true
+				isMoreQuestions = false
 			}
 		}
 
@@ -105,8 +85,6 @@ ALL_QUESTIONS = {
 			currentVal = ALL_QUESTIONS[currentKey]
 			$question.text(currentVal.wording)
 		}
-
-
 
 	})
 
