@@ -1,0 +1,110 @@
+<html>
+	<head>
+
+		<!-- Feel free to load any JS libraries here. -->
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+		 crossorigin="anonymous"></script>
+		<script>
+
+// Every survey starts with these three questions, in this order. Do not modify this.
+DEFAULT_QUESTIONS = ['cough_sentence', 'cough_blue', 'cough_length']
+
+// All questions the app might ever ask. Do not modify this.
+ALL_QUESTIONS = {
+	'cough_sentence': {
+		'wording': 'Is your child able to finish a sentence without needing a breath?',
+		'if_yes_ask':[],
+		'if_no_ask':[],
+	},
+	'cough_blue': {
+		'wording': 'Are your child\'s lips or face turning blue?',
+		'if_yes_ask':[],
+		'if_no_ask':[],
+	},
+	'cough_length': {
+		'wording': 'Has your child had a cough for more than 3 days?',
+		'if_yes_ask':['cough_worsening', 'cough_ribs_pulling'],
+		'if_no_ask':['cough_wheezing']
+	},
+	'cough_ribs_pulling': {
+		'wording': 'When your child breathes, is the skin around their ribs pulling in with each breath and outlining their ribs?',
+		'if_yes_ask':['cough_pain'],
+		'if_no_ask':[],
+	},
+	'cough_pain': {
+		'wording': 'Does your child have pain when trying to take a breath?',
+		'if_yes_ask':['cough_ingest'],
+		'if_no_ask':[],
+	},
+	'cough_wheezing': {
+		'wording': 'Is your child\'s breathing between coughs noisy?',
+		'if_yes_ask':['cough_ingest'],
+		'if_no_ask':[],
+	},
+	'cough_worsening': {
+		'wording': 'Since your child\'s cough started, has it been getting worse?',
+		'if_yes_ask':[],
+		'if_no_ask':[],
+	},
+	'cough_ingest': {
+		'wording': 'Did the cough start after your child choked on something, even if it was a very minor incident?',
+		'if_yes_ask':[],
+		'if_no_ask':[],
+	}
+}
+
+// Your code here:
+	$(function() {
+		/*
+			Load first question, second question, third questions
+			Based on response to third question, we will render different follow up questions
+
+			Once there we have reached the end of our follow up questions, we will render a 'questions answered!' response
+		*/
+		const $question = $('#question')
+		const $yes = $('#yesButton')
+		const $no = $('#noButton')
+		let toAsk = [...DEFAULT_QUESTIONS]
+		let currentKey = toAsk.shift()
+		currentVal = ALL_QUESTIONS[currentKey]
+		$question.text(currentVal.wording)
+
+		$yes.on('click', function(e) {
+			if (currentVal.if_yes_ask) {
+				toAsk.push(...currentVal.if_yes_ask)
+			}
+			checkDone()
+			let currentKey = toAsk.shift()
+			currentVal = ALL_QUESTIONS[currentKey]
+			$question.text(currentVal.wording)
+		})
+
+		$no.on('click', function(e) {
+			if (currentVal.if_no_ask) {
+				toAsk.push(...currentVal.if_no_ask)
+			}
+			checkDone()
+			let currentKey = toAsk.shift()
+			currentVal = ALL_QUESTIONS[currentKey]
+			$question.text(currentVal.wording)
+		})
+
+		function checkDone() {
+			if (!toAsk.length) {
+				$question.text('No more questions!')
+			}
+		}
+
+
+	})
+
+	</script>
+	</head>
+	<body>
+		<div id="question">
+		</div>
+		<button id="yesButton">Yes</button>
+		<button id="noButton">No</button>
+	</body>
+
+</html>
