@@ -52,14 +52,14 @@ function moveZerosLeftNonWorking(nums) {
   return nums;
 
   // I think this constant even though it uses slice, because our swapWindow is constant
-  function swap(arr, start, end) {
-    let temp = arr[start];
-    arr[start] = arr[end];
-    arr[end] = temp;
+  function swap(nums, start, end) {
+    let temp = nums[start];
+    nums[start] = nums[end];
+    nums[end] = temp;
   }
 }
 // CodeRust answer
-function moveZerosLeft(nums) {
+function moveZerosLeftCodeRust(nums) {
   if (nums.length < 1) {
     return;
   }
@@ -79,9 +79,21 @@ function moveZerosLeft(nums) {
   }
 }
 
+function moveZerosLeft(nums) {
+  let zeroCount = 0;
+  for (let i = nums.length - 1; i > 0; i--) {
+    if (nums[i] === 0) {
+      zeroCount++;
+    }
+    nums[i + zeroCount] = nums[i];
+  }
+  nums.unshift(...new Array(zeroCount).fill(0));
+  return nums;
+}
+
 let arr1 = [1, 10, 20, 0];
 let arr2 = [1, 10, 20, 0, 59, 63, 0];
 let arr3 = [1, 10, 20, 0, 59, 63, 0, 88, 0];
 
-moveZerosLeft(arr3);
-console.log(arr3);
+moveZerosLeft(arr1);
+console.log(arr1);
