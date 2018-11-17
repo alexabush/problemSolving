@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Tabs!</title>
+  <style>
+    .tab-container {
+      height: 28px;
+    }
+
+    .tab {
+      display: inline;
+      padding: 10px 20px;
+      margin-right: 10px;
+      margin-left: 10px;
+      border-top: 1px solid black;
+      border-left: 1px solid black;
+      border-right: 1px solid black;
+    }
+
+    .tab:hover {
+      text-decoration: underline;
+    }
+
+    .content-container {
+      height: 200px;
+      width: 200px;
+    }
+
+    .content {
+      border-bottom: 1px solid black;
+      border-left: 1px solid black;
+      border-right: 1px solid black;
+      height: 300px;
+      width: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+
+    #content1,
+    #tab1 {
+      background: red;
+    }
+
+    #content2,
+    #tab2 {
+      background: blue;
+    }
+
+    #content3,
+    #tab3 {
+      background: yellow;
+    }
+
+    .hide {
+      display: none;
+    }
+  </style>
+  </head>
+  <body>
+  <main>
+    <div class='tab-container'>
+      <div class='tab' id='tab1'>Page 1</div>
+      <div class='tab' id='tab2'>Page 2</div>
+      <div class='tab' id='tab3'>Page 3</div>
+    </div>
+    <div class='content-container'>
+      <div class='content' id='content1'>Content of page 1</div>
+      <div class='content hide' id='content2'>Content of page 2</div>
+      <div class='content hide' id='content3'>Content of page 3</div>
+    </div>
+    <main>
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+  <script>
+    $(function() {
+      let $tab1 = $('#tab1');
+      let $tab2 = $('#tab2');
+      let $tab3 = $('#tab3');
+      let $content1 = $('#content1');
+      let $content2 = $('#content2');
+      let $content3 = $('#content3');
+
+      $tab1.on('click', e => {
+        $content1.removeClass('hide');
+        $content2.addClass('hide');
+        $content3.addClass('hide');
+      });
+      $tab2.on('click', e => {
+        $content2.removeClass('hide');
+        $content1.addClass('hide');
+        $content3.addClass('hide');
+      });
+      $tab3.on('click', e => {
+        $content3.removeClass('hide');
+        $content1.addClass('hide');
+        $content2.addClass('hide');
+      });
+    });
+  </script
+  </body>
+</html>
