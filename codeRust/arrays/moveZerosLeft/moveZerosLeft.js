@@ -97,3 +97,5 @@ let arr3 = [1, 10, 20, 0, 59, 63, 0, 88, 0];
 
 moveZerosLeft(arr1);
 console.log(arr1);
+
+

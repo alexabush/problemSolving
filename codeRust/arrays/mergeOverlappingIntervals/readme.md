@@ -13,3 +13,4 @@ iterate over array and build new array
 we should probably just build an object of start and end times and then build an array from there after we've traversed the list
 
 we'll get linear time complexity, which is fine
+

@@ -1,1 +1,3 @@
-function mergeOverlappingIntervals(nums) {}
+function mergeOverlappingIntervals(intervals) {
+
+}
