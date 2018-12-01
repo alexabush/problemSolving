@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+</head>
+<body>
+  <div>
+    <input type="text" id='input'>
+    <p id='display'></p>
+  </div>
+  <script>
+    $('#input').keypress(function(value) {
+      debugger
+      var val = this.value;
+      const upcode = 'UP-92368476-1'
+      const cid = '12345.124345'
+      const data = {
+          "prices": [
+            { "id": "35ad8971-45c7-f6e3-a2c8-1d646d00a5e1", "price": val * 1000, "travelers": 1 }
+          ],
+          "order": { "hotel_reservations": [{ "check_in": "20181023", "check_out": "20181027" }], "air_reservations": [{ "trip_type": "roundtrip", "itinerary": [{ "departure_apc": "SFO", "arrival_apc": "JFK", "departure_time": "20181023" }, { "departure_apc": "JFK", "arrival_apc": "SFO", "departure_time": "20181027" }] }], "travelers": [{ "id": 0 }], "up_code": "UP-92368476-1", "customer_id": "460892259.1536723005" }
+        }
+      let payload = JSON.stringify(data)
+      fetch(`https://fps3.dev.uplift-platform.com/malu/marketing/v2/UP-92368476-1/1.3.460892259.1536723005/from`,
+        {
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          method: "POST",
+          body: payload
+        })
+        .then(function (res) {
+          return res.json()
+        }).then(data => {
+          const amount = data.offers[0].monthly_payment_amount
+          debugger
+          console.log(amount);
+          if (amount) {
+            $('#display').text(amount)
+          } else {
+            $('#display').text('Entered value is below minimum')
+          }
+        })
+        .catch(function (res) { console.log(res) })
+    });
+  </script>
+
+</body>
+</html>
+
+<!-- Need to make keypress update everytime
+    make a little bit of styling
+    should be able to handle decimal points, both with input and in displaying the output
+
+-->
