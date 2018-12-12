@@ -4,8 +4,8 @@ const url = require('url');
 const WebSocket = require('ws');
 const path = require('path');
 
-const NUM_ITEMS = 1000;
-const MESSAGES_PER_SECOND = 1000;
+const NUM_ITEMS = 10;
+const MESSAGES_PER_SECOND = 1;
 
 const app = express();
 

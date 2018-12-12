@@ -1,5 +1,6 @@
 import React, { Component, PureComponent } from 'react';
 import './App.css';
+import uuid from 'uuid/v4';
 
 class App extends Component {
   constructor(props) {
@@ -7,9 +8,9 @@ class App extends Component {
     this.lastUpdateDate = new Date();
   }
   state = {
-    messages: new Array(1000).fill(1).map((val, i) => {
+    messages: new Array(10).fill(1).map((val, i) => {
       return { id: i, value: i, name: 'Jane Doe' };
-    }),
+    })
   };
 
   // DOM only updated once per second
@@ -17,7 +18,7 @@ class App extends Component {
   shouldComponentUpdate() {
     const now = new Date();
     var seconds = (now.getTime() - this.lastUpdateDate.getTime()) / 1000;
-    return seconds >= 5;
+    return seconds >= 1;
   }
 
   componentDidUpdate() {
@@ -43,7 +44,7 @@ class App extends Component {
           return 0;
         });
         return {
-          messages: newMessages,
+          messages: newMessages
         };
       });
     };
@@ -54,8 +55,9 @@ class App extends Component {
   }
 
   render() {
-    let messageRows = this.state.messages.map(({ id, value, name }, idx) => {
-      return <Row key={'msg-' + idx} id={id} value={value} name={name} />;
+    console.log('App rendered')
+    let messageRows = this.state.messages.map(({ id, value, name }) => {
+      return <Row key={uuid()} id={id} value={value} name={name} />;
     });
     return (
       <div className="App">
@@ -79,6 +81,7 @@ export default App;
 
 class Row extends PureComponent {
   render() {
+    console.log('Row rendered')
     let { id, value, name } = this.props;
     return (
       <tr className="Row">
