@@ -12,11 +12,6 @@ function singleNumberIII(nums) {
     if (counter[val]) result.push(+val)
   }
   return result
-  // let result = counter.reduce((acc, val, i) => {
-  //   if (val) acc.push(i);
-  //   return acc;
-  // }, []);
-  // return result;
 }
 
 console.log(singleNumberIII(nums1));
