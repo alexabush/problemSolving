@@ -1,9 +1,8 @@
 function gameOfLife(board) {
-  let newBoard = board.map(row => row.map(cell => cell));
+  // let newBoard = board.map(row => row.map(cell => cell));
+  let newBoard = [...Array(board.length)].map(row => Array(board[0].length));
   for (let i = 0; i < board.length; i++) {
-    let row = board[i];
     for (let j = 0; j < board[0].length; j++) {
-      let cell = board[i][j];
       let neighbors = 0;
       if (i > 0 && board[i - 1][j] === 1) {
         neighbors++;
@@ -41,16 +40,15 @@ function gameOfLife(board) {
   }
   for (let i = 0; i < board.length; i++) {
     for (let j = 0; j < board[0].length; j++) {
-      board[i][j] = newBoard[i][j]
+      if (newBoard[i][j] >= 0 ) board[i][j] = newBoard[i][j];
     }
   }
 }
 
-// let board = [[0, 1, 0], [0, 0, 1], [1, 1, 1], [0, 0, 0]];
-// gameOfLife(board);
-// console.log(board);
+let board = [[0, 1, 0], [0, 0, 1], [1, 1, 1], [0, 0, 0]];
+gameOfLife(board);
+console.log(board);
 
-let tinyBoard = [[1,1],[1,0]];
-gameOfLife(tinyBoard);
-console.log(tinyBoard);
-
+// let tinyBoard = [[1, 1], [1, 0]];
+// gameOfLife(tinyBoard);
+// console.log(tinyBoard);
