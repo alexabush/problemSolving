@@ -4,6 +4,7 @@ function increasingSubsequences(nums) {
   for (let i = 0; i < nums.length - 1; i++) {
     helper([nums[i]], i + 1);
   }
+  if (!possibilities.length) return []
   let result = [possibilities[0]];
   for (let i = 1; i < possibilities.length; i++) {
     if (checkIfArraysAreSame(possibilities[i - 1], possibilities[i])) {
@@ -34,5 +35,7 @@ function checkIfArraysAreSame(arr1, arr2) {
   return true;
 }
 
-let nums = [4, 6, 7, 7];
+// let nums = [4, 6, 7, 7];
+// let nums = [4,3,2,1]
+let nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 1, 1, 1, 1]
 console.log(increasingSubsequences(nums));
