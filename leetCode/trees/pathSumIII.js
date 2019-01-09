@@ -1,20 +1,22 @@
 function pathSumIII(root, sum) {
   if (!root) return false;
   let count = 0;
-  helper(root, sum);
+  helper(root, [sum], 1);
   return count;
 
-  function helper(node, sum) {
+  function helper(node, sums, level) {
     if (!node) return;
-    debugger
-    sum -= node.val;
-    if (sum === 0) count++
-    debugger;
+    if (typeof sums[level-1] === 'undefined') sums[level-1] = sum
+    sums = sums.map(levelSum => {
+      levelSum -= node.val
+      if (levelSum === 0) count++
+      return levelSum
+    })
     if (node.left) {
-      helper(node.left, sum);
+      helper(node.left, sums, level+1);
     }
     if (node.right) {
-      helper(node.right, sum);
+      helper(node.right, sums, level+1);
     }
   }
 }
