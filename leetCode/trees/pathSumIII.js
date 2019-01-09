@@ -1,4 +1,4 @@
-function pathSumIII(root, sum) {
+function pathSumIIIAlex(root, sum) {
   if (!root) return false;
   let count = 0;
   helper(root, [sum], 1);
@@ -18,6 +18,29 @@ function pathSumIII(root, sum) {
     if (node.right) {
       helper(node.right, sums, level+1);
     }
+  }
+}
+
+// from leetcode, very advanced solution for me, worth a lot of further review
+function pathSumIII(root, sum) {
+  debugger
+  if (!root) return false;
+  let preSum = {}
+  preSum[0] = 1
+  return helper(root, 0, sum, preSum);
+
+  function helper(node, currentSum, sum, preSum) {
+    debugger
+    if (!node) return 0;
+    currentSum += node.val
+    let result = preSum[currentSum - sum] || 0
+    preSum[currentSum] = (preSum[currentSum] || 0) + 1
+
+    result
+      += helper(node.left, currentSum, sum, preSum)
+      + helper(node.right, currentSum, sum, preSum);
+    preSum[currentSum] = preSum[currentSum] - 1
+    return result
   }
 }
 
