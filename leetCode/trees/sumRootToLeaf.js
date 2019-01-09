@@ -1,16 +1,14 @@
 function sumRootToLeafNumbers(root) {
-  let pathSums = []
+  let pathSums = 0
   helper(root)
-  return pathSums.reduce((acc, sum) => {
-    acc += +sum;
-    return acc
-  }, 0)
+  return pathSums
 
   function helper(node, sum='') {
     if (!node) return
-    sum += node.val.toString()
-    if (!node || !node.left && !node.right) pathSums.push(sum);
-    helper(node.left, sum) + helper(node.right, sum)
+    sum = sum * 10 + node.val
+    if (!node || !node.left && !node.right) pathSums += sum
+    helper(node.left, sum)
+    helper(node.right, sum)
   }
 }
 
