@@ -23,14 +23,12 @@ function pathSumIIIAlex(root, sum) {
 
 // from leetcode, very advanced solution for me, worth a lot of further review
 function pathSumIII(root, sum) {
-  debugger
   if (!root) return false;
   let preSum = {}
   preSum[0] = 1
   return helper(root, 0, sum, preSum);
 
   function helper(node, currentSum, sum, preSum) {
-    debugger
     if (!node) return 0;
     currentSum += node.val
     let result = preSum[currentSum - sum] || 0
