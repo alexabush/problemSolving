@@ -15,7 +15,6 @@ var mergeTwoSortedLists = function(l1,l2) {
   let temp2 = c2
   let temp1 = c1
   while (c2) {
-    debugger
     temp2 = c2
     temp1 = c1
     if (c1.val <= c2.val) {
