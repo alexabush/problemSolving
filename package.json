@@ -1,0 +1,11 @@
+{
+  "name": "problemSolving",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:alexabush/problemSolving.git",
+  "author": "Alex Bush <alexabush7@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^23.6.0"
+  }
+}
